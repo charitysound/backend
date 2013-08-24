@@ -17,8 +17,6 @@ module.exports = function(grunt) {
 		compass: {
 			dev: {
 				options: {
-					sassDir: 'public/sass',
-					cssDir: 'public/css',
 					config: 'config.rb'
 				}
 			},
@@ -74,12 +72,12 @@ module.exports = function(grunt) {
 			}
 		},
 		sshexec: {
-			test: {
-				command: [
+			git: {
+				command:
 					'cd /var/www/site;' + 
 					'git checkout <%= branch %>;' + 
-					'git pull origin <%= branch %>',
-				],
+					'git pull origin <%= branch %>,' +
+					'php artisan migrate',
 				options: {
 					host: '<%= config.servers.dev.host %>',
 					username: '<%= config.servers.dev.username %>',
