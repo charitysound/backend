@@ -60,7 +60,18 @@ module.exports = function(grunt) {
 		},
 		usemin: {
 			html: ['app/views/templates/**/*.php'],
-		}
+		},
+		shell: {
+			test: {
+				options: {
+					stdout: true
+				},
+				command: [
+					'git push origin <%= branch %>'
+				].join('&&')
+			}
+		},
+		branch: grunt.option('branch') || 'master',
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-compass');
@@ -71,8 +82,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	grunt.loadNpmTasks('grunt-shell');
 
 	grunt.registerTask('default', ['compass:dev', 'neuter']);
-	grunt.registerTask('dist', ['compass:dist', 'neuter', 'copy', 'useminPrepare', 'concat', 'uglify', 'usemin' ]);
+	grunt.registerTask('dist', ['compass:dist', 'neuter', 'copy', 'useminPrepare', 'concat', 'uglify', 'usemin']);
+	grunt.registerTask('deploy', ['shell']);
 
 };
