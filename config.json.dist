@@ -1,4 +1,5 @@
 {
+	"env": "local",
 	"servers": {
 		"dev": {
 			"host": "cs.cagehost.com",

@@ -44,10 +44,7 @@
 			@yield('content')
 		</div>
 
-        <!-- build:js js/libs.js -->
-        <script src="{{ asset('js/libs/jquery.js') }}"></script>
-        <script src="{{ asset('js/libs/bootstrap.min.js') }}"></script>
-        <!-- endbuild -->
+        <script src="js/libs.js"></script>
 
 	</body>
 </html>

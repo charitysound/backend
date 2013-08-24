@@ -41,15 +41,26 @@ module.exports = function(grunt) {
 		},
        	copy: {
             dev: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: 'public/',
-                    dest: 'dist/',
-                    src: [
-                        'js/global.js'
-                    ]
-                }]
+                files: [
+	                {
+	                    expand: true,
+	                    dot: true,
+	                    cwd: 'public/',
+	                    dest: 'dist/',
+	                    src: [
+	                        'js/global.js'
+	                    ]
+	                },
+	                {
+	                	expand: true,
+	                    dot: true,
+	                    cwd: 'app/views/templates/',
+	                    dest: 'app/views/dist/templates/',
+	                    src: [
+	                        'default.blade.php'
+	                    ]
+	                }
+                ]
             }
         },
 		useminPrepare: {
@@ -59,10 +70,10 @@ module.exports = function(grunt) {
             }
 		},
 		usemin: {
-			html: ['app/views/templates/**/*.php'],
+			html: ['app/views/dist/templates/**/*.php'],
 		},
 		shell: {
-			git: {
+			dist: {
 				options: {
 					stdout: true
 				},
@@ -72,11 +83,11 @@ module.exports = function(grunt) {
 			}
 		},
 		sshexec: {
-			git: {
+			dist: {
 				command:
 					'cd /var/www/site;' + 
 					'git checkout <%= branch %>;' + 
-					'git pull origin <%= branch %>,' +
+					'git pull origin <%= branch %>;' +
 					'php artisan migrate',
 				options: {
 					host: '<%= config.servers.dev.host %>',
@@ -85,7 +96,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		branch: grunt.option('branch') || 'master',
+		branch: grunt.option('branch') || 'master'
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-compass');

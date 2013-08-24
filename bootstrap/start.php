@@ -26,11 +26,20 @@ $app->redirectIfTrailingSlash();
 |
 */
 
+$env = $app->detectEnvironment(function()
+{
+	$jsonConfig = file_get_contents("../config.json");
+	$config = json_decode($jsonConfig);
+    return $config->env;
+});
+
+/*
 $env = $app->detectEnvironment(array(
 
 	'local' => array('your-machine-name'),
 
 ));
+*/
 
 /*
 |--------------------------------------------------------------------------
