@@ -1,5 +1,5 @@
 (function() {
 
-alert('here');
+console.log('here');
 
 })();
