@@ -28,7 +28,7 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(function()
 {
-	$jsonConfig = file_get_contents(__DIR__.'../config.json');
+	$jsonConfig = file_get_contents(__DIR__.'/../config.json');
 	$config = json_decode($jsonConfig);
     return $config->env;
 });
