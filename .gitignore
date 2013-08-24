@@ -1,0 +1,9 @@
+/app/config/database.php
+
+/node_modules
+
+/bootstrap/compiled.php
+/vendor
+composer.phar
+composer.lock
+.DS_Store
