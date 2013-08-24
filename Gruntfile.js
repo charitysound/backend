@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
+		config: grunt.file.readJSON('config.json'),
 		watch: {
 			sass: {
 				files: 'public/sass/*',
@@ -18,6 +19,7 @@ module.exports = function(grunt) {
 				options: {
 					sassDir: 'public/sass',
 					cssDir: 'public/css',
+					config: 'config.rb'
 				}
 			},
 			dist: {
@@ -62,13 +64,27 @@ module.exports = function(grunt) {
 			html: ['app/views/templates/**/*.php'],
 		},
 		shell: {
-			test: {
+			git: {
 				options: {
 					stdout: true
 				},
 				command: [
-					'git push origin <%= branch %>'
+					'git push origin <%= branch %>',
 				].join('&&')
+			}
+		},
+		sshexec: {
+			test: {
+				command: [
+					'cd /var/www/site;' + 
+					'git checkout <%= branch %>;' + 
+					'git pull origin <%= branch %>',
+				],
+				options: {
+					host: '<%= config.servers.dev.host %>',
+					username: '<%= config.servers.dev.username %>',
+					password: '<%= config.servers.dev.password %>'
+				}
 			}
 		},
 		branch: grunt.option('branch') || 'master',
@@ -83,9 +99,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-ssh');
 
 	grunt.registerTask('default', ['compass:dev', 'neuter']);
 	grunt.registerTask('dist', ['compass:dist', 'neuter', 'copy', 'useminPrepare', 'concat', 'uglify', 'usemin']);
-	grunt.registerTask('deploy', ['shell']);
+	grunt.registerTask('deploy', ['sshexec']);
 
 };

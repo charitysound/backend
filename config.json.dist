@@ -1,0 +1,9 @@
+{
+	"servers": {
+		"dev": {
+			"host": "cs.cagehost.com",
+			"username": "user",
+			"password": "password"
+		}
+	}
+}

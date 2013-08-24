@@ -1,5 +1,6 @@
+config.json
 /app/config/database.php
-
+/public/.sass_cache/**/*
 /node_modules
 
 /bootstrap/compiled.php
