@@ -2,6 +2,6 @@
 
 @section('content')
 	
-	Home
+	Login
 
 @stop

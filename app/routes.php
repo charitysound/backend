@@ -11,18 +11,27 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', ['as' => 'home', function()
 {
 	return View::make('index');
-});
+}]);
 
-Route::group(array('prefix' => 'admin'), function()
+Route::get('/login', ['as' => 'login', function()
+{
+	return View::make('login');
+}]);
+
+Route::group(array('prefix' => 'api'), function()
 {
 
     Route::get('/', function()
     {
-        echo 'admin';
-        die;
+        return Response::json(array('version' => '0.0.1'));
+    });
+
+    Route::get('/users', function()
+    {
+        return Response::json(array('name' => 'Alex'));
     });
 
 });
