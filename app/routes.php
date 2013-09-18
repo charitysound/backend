@@ -11,15 +11,22 @@
 |
 */
 
-Route::get('/', ['as' => 'home', function()
+Route::group(array('before' => 'auth'), function()
 {
-	return View::make('index');
-}]);
+    View::share('user', Auth::user());
+    Route::get('/', ['as' => 'home', function()
+    {
+    	return View::make('index');
+    }]);
+    Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
+});
 
-Route::get('/login', ['as' => 'login', function()
+Route::group(array('before' => 'guest'), function()
 {
-	return View::make('login');
-}]);
+    Route::get('login', ['as' => 'login', 'uses' => 'AuthController@getLogin']);
+    Route::post('login', ['as' => 'postLogin', 'uses' => 'AuthController@postLogin']);
+    Route::get('activate', ['as' => 'activate', 'uses' => 'AuthController@getActivate']);
+});
 
 Route::group(array('prefix' => 'api'), function()
 {

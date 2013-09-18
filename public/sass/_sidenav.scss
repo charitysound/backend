@@ -1,0 +1,85 @@
+#sidenav{
+	background: #333;
+	border-color: #080808;
+	border-radius: 0;
+	border-top: 1px solid #000;
+}
+#sidenav i{
+	float: right;
+	font-size: 130%;
+	text-shadow: 1px 1px 1px #000;
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+}
+#sidenav a{
+	color: #ccc;
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	border-radius: 0;
+	background: none;
+	padding: 10px 0 10px 10px;
+}
+#sidenav a span{
+	display: block;
+	background-size: 18px;
+}
+#sidenav li{
+	margin-top: 0;
+	background: #333;
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #222;
+}
+#sidenav li:hover{
+	background: #222;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+#sidenav li a:hover{
+	color: #fff;
+}
+#sidenav li > ul > li > a {
+
+}
+#sidenav ul.nav.collapse{
+
+}
+#sidenav ul.nav.in, #sidenav ul.nav.collapsing{
+	border-top: 1px solid #222;
+}
+#sidenav a[data-toggle="collapse"] span{
+	background-image: url(../img/icons/navup.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+#sidenav a[data-toggle="collapse"].collapsed span{
+	background-image: url(../img/icons/navdown.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+	#sidenav a{
+		letter-spacing: 0;
+		font-size: 11px;
+	}
+	#sidenav a span{
+		padding-left: 18px;
+		margin-right: 5px;
+		background-size: 12px;
+	}
+}
+
+@media (min-width: 992px) {
+	#sidenav a{
+		font-size: 12px;
+	}
+	#sidenav a span{
+		padding-left: 24px;
+		margin-right: 10px;
+		background-size: 16px;
+	}
+}
