@@ -10272,53 +10272,78 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
   content: "\f18b";
 }
 
-/* line 5, ../sass/global.scss */
+/* Layout */
+/* line 6, ../sass/global.scss */
 html, body {
   height: 100%;
-  background: #222;
-}
-
-/* line 9, ../sass/global.scss */
-#wrap-side {
-  padding: 51px 0 100px 0;
-}
-
-/* line 12, ../sass/global.scss */
-#side {
-  position: fixed;
-  width: inherit;
-}
-
-/* line 16, ../sass/global.scss */
-#page {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  padding: 65px 15px 75px 15px;
   background: #f4f4f4;
 }
 
+/* line 10, ../sass/global.scss */
+#wrap {
+  min-height: 100%;
+}
+
+/* line 13, ../sass/global.scss */
+#side {
+  float: left;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  padding-top: 51px;
+  width: 240px;
+  background: #222;
+  position: fixed;
+}
+
 /* line 23, ../sass/global.scss */
+#page {
+  overflow-x: auto;
+  padding-top: 65px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 75px;
+  margin-bottom: -60px;
+  background: #f4f4f4;
+}
+
+/* line 32, ../sass/global.scss */
 #footer {
   background: #222;
-  outline: 1px solid #000;
   height: 60px;
 }
 
+@media (min-width: 768px) {
+  /* line 38, ../sass/global.scss */
+  #page {
+    margin-left: 240px;
+  }
+
+  /* line 41, ../sass/global.scss */
+  body[data-template="blank"] #page {
+    margin-left: 0;
+  }
+}
+/* Login */
+/* line 48, ../sass/global.scss */
+.form-signin {
+  padding-bottom: 200px;
+}
+
 /* Top Navigation */
-/* line 31, ../sass/global.scss */
+/* line 54, ../sass/global.scss */
 #topnav .navbar-brand {
   padding: 0 10px;
   line-height: 50px;
   color: #fff;
 }
 
-/* line 37, ../sass/global.scss */
+/* line 60, ../sass/global.scss */
 #topnav .navbar-brand img {
   height: 32px;
 }
 
-/* line 41, ../sass/global.scss */
+/* line 64, ../sass/global.scss */
 #topnav .navbar-brand i {
   position: relative;
   top: 3px;
@@ -10361,10 +10386,12 @@ html, body {
 /* line 26, ../sass/_sidenav.scss */
 #sidenav a span {
   display: block;
+  padding-left: 30px;
+  margin-right: 10px;
   background-size: 18px;
 }
 
-/* line 30, ../sass/_sidenav.scss */
+/* line 32, ../sass/_sidenav.scss */
 #sidenav li {
   margin-top: 0;
   background: #333;
@@ -10372,61 +10399,58 @@ html, body {
   border-bottom: 1px solid #222;
 }
 
-/* line 36, ../sass/_sidenav.scss */
+/* line 38, ../sass/_sidenav.scss */
 #sidenav li:hover {
   background: #222;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 }
 
-/* line 41, ../sass/_sidenav.scss */
+/* line 43, ../sass/_sidenav.scss */
 #sidenav li a:hover {
   color: #fff;
 }
 
-/* line 50, ../sass/_sidenav.scss */
+/* line 52, ../sass/_sidenav.scss */
 #sidenav ul.nav.in, #sidenav ul.nav.collapsing {
   border-top: 1px solid #222;
 }
 
-/* line 53, ../sass/_sidenav.scss */
+/* line 55, ../sass/_sidenav.scss */
 #sidenav a[data-toggle="collapse"] span {
   background-image: url(../img/icons/navup.png);
   background-position: left center;
   background-repeat: no-repeat;
 }
 
-/* line 58, ../sass/_sidenav.scss */
+/* line 60, ../sass/_sidenav.scss */
 #sidenav a[data-toggle="collapse"].collapsed span {
   background-image: url(../img/icons/navdown.png);
   background-position: left center;
   background-repeat: no-repeat;
 }
 
+/*
 @media (min-width: 768px) {
-  /* line 65, ../sass/_sidenav.scss */
-  #sidenav a {
-    letter-spacing: 0;
-    font-size: 11px;
-  }
-
-  /* line 69, ../sass/_sidenav.scss */
-  #sidenav a span {
-    padding-left: 18px;
-    margin-right: 5px;
-    background-size: 12px;
-  }
+	#sidenav a{
+		letter-spacing: 0;
+		font-size: 11px;
+	}
+	#sidenav a span{
+		padding-left: 18px;
+		margin-right: 5px;
+		background-size: 12px;
+	}
 }
+
 @media (min-width: 992px) {
-  /* line 77, ../sass/_sidenav.scss */
-  #sidenav a {
-    font-size: 12px;
-  }
-
-  /* line 80, ../sass/_sidenav.scss */
-  #sidenav a span {
-    padding-left: 24px;
-    margin-right: 10px;
-    background-size: 16px;
-  }
+	#sidenav a{
+		font-size: 12px;
+	}
+	#sidenav a span{
+		padding-left: 24px;
+		margin-right: 10px;
+		background-size: 16px;
+	}
 }
+*/

@@ -2,28 +2,51 @@
 @import "bootstrap-theme.min";
 @import "font-awesome/font-awesome";
 
+/* Layout */
 html, body {
 	height: 100%;
-	background: #222;
+	background: #f4f4f4;
 }
-#wrap-side{
-	padding: 51px 0 100px 0;
+#wrap{
+	min-height: 100%;
 }
 #side{
-	position: fixed;
-	width: inherit;
-}
-#page{
+	float: left;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	padding: 65px 15px 75px 15px;
+	padding-top: 51px;
+	width: 240px;
+	background: #222;
+	position: fixed;
+}
+#page{
+	overflow-x: auto;
+	padding-top: 65px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 75px;
+	margin-bottom: -60px;
 	background: #f4f4f4;
 }
 #footer{
 	background: #222;
-	outline: 1px solid #000;
 	height: 60px;
+}
+
+@media (min-width: 768px) {
+	#page{
+		margin-left: 240px;
+	}
+	body[data-template="blank"] #page{
+		margin-left: 0;
+	}
+}
+
+/* Login */
+
+.form-signin{
+	padding-bottom: 200px;
 }
 
 /* Top Navigation */
@@ -48,3 +71,4 @@ html, body {
 /* Left Side Navigation */
 
 @import "sidenav";
+

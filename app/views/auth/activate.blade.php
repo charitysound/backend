@@ -1,8 +1,7 @@
-@extends('templates/default')
+@extends('templates/blank')
 
 @section('content')
 
-<div id="page">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-md-push-4">
@@ -41,6 +40,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 
 @stop

@@ -3,11 +3,7 @@
 
 	@include('partials/header')
 
-	<body data-template="default">
-
-		@yield('top')
-
-		@yield('side')
+	<body data-template="blank">
 
 		<div id="wrap">
 			<div id="page">

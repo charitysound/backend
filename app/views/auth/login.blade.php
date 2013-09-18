@@ -1,8 +1,7 @@
-@extends('templates/default')
+@extends('templates/blank')
 
 @section('content')
 
-<div id="page">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-md-push-4">
@@ -18,7 +17,7 @@
 
 					<div class="form-group {{ !$errors->first('username') ?: 'has-error' }}">
 						{{ $errors->first('username', '<label class="control-label">:message</label>') }}
-						<input name="username" type="text" class="form-control" value="{{ Input::old('username') }}" placeholder="Username or email address" autofocus>
+						<input name="username" type="text" class="form-control" value="{{ Input::old('username') }}" placeholder="Username or email address">
 					</div>
 
 					<div class="form-group {{ !$errors->first('password') ?: 'has-error' }}">
@@ -29,7 +28,8 @@
 					<div class="row">
 						<div class="col-md-6">
 							<label class="checkbox">
-								<input name="remember-me" type="checkbox"> Remember me
+								<input name="remember-me" type="checkbox">
+								Remember me
 							</label>
 						</div>
 
@@ -41,6 +41,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 
 @stop

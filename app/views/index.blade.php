@@ -10,18 +10,10 @@
 
 @section('content')
 
-	<div id="page" class="col-sm-9 col-lg-10">
-		
-		Home
+	Hello, {{ $user->email }}
 
-		<hr>
+	<div style="height: 1000px;">Top</div>
 
-		{{ $user->email }}
-
-		<div style="height: 1000px;"></div>
-
-		Yo
-
-	</div>
+	Bottom
 
 @stop
